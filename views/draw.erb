@@ -1,0 +1,21 @@
+<div id="spacer" class="spacer">
+  <div id="loader" class="interface loader">
+    
+  </div>
+  <div id="pallette" class="interface pallete">
+    <div class="swatch" id="highlight"></div>
+    <div class="swatch" id="midtone"></div>
+    <div class="swatch" id="shadow"></div>
+  </div>
+  <div id="canvas" class="interface canvas">
+    <div id="grid" class="grid">
+      <% 16.times do |y|%>
+        <div id="<%='row' + y.to_s%>" class="row">
+          <% 16.times do |x| %>
+            <div id="<%='x'+ x.to_s + 'y' + y.to_s%>" class="pixel"></div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
