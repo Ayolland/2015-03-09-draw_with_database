@@ -1,6 +1,6 @@
 class Sprite
   
-  attr_accessor :pixel_array, :id
+  attr_accessor :pixel_array, :id, :name
   
   def initialize(options)
     @id = options["id"] || options[:id]
@@ -44,6 +44,7 @@ class Sprite
       update_arr << "name='#{@name}'"
       update_str = update_arr.join(", ")
       sql_str = "UPDATE sprites SET #{update_str} WHERE id=#{@id}"
+      DATABASE.execute(sql_str)
     end
   end
   
