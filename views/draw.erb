@@ -1,6 +1,15 @@
 <div id="spacer" class="spacer">
   <div id="loader" class="interface loader">
-    
+    <form>
+      <select id="dropdown">
+        <% @all_sprites.each do |sprite|%>
+          <option value=<%= sprite.id %>><%= sprite.id.to_s + ": " + sprite.name%></option>
+        <% end %>
+      </select>
+    </form>
+    <button id="load_button" class="load">Load this drawing.</button>
+    <br>
+    <button id="clear_button" class="clear">Clear the canvas.</button>
   </div>
   <div id="pallette" class="interface pallete">
     <div class="swatch" id="highlight"></div>
@@ -17,9 +26,9 @@
         </div>
       <% end %>
     </div>
-    <form>
-      <input type="text" name="name" id="name_field" placeholder="Name your drawing!">
-      <button type=submit id="save_button">Save your drawing.</button>
-    </form>
+      <form class="saver">
+        <input type="text" name="name" id="name_field" value="Name your drawing!">
+        <button id="save_button" class="save">Save this drawing.</button>
+      </form>
   </div>
 </div>

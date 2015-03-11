@@ -7,10 +7,10 @@ class Sprite
     @name = options["name"] || options[:name]
     @pixel_matrix = []
     16.times do |y|
-      @pixelmatrix[y] = []
+      @pixel_matrix[y] = []
       16.times do |x|
         key_str = "x" + x.to_s + "y" + y.to_s
-        @pixelmatrix[y][x] = options[key_str] || options[key_str.to_sym]
+        @pixel_matrix[y][x] = options[key_str] || options[key_str.to_sym]
       end
     end
   end
@@ -21,15 +21,15 @@ class Sprite
   end
   
   def self.all
-    sql_str = "SELECT * FROM products"
+    sql_str = "SELECT * FROM sprites"
     results = DATABASE.execute(sql_str)
     results.map { |hash| Sprite.new(hash) }
   end
   
   def insert
     if @id == nil
-      key_str, sql_str = splitter
-      sql_str = "INSERT INTO sprites (#{key_str)}) VALUES (#{val_str})"
+      key_str, val_str = splitter
+      sql_str = "INSERT INTO sprites (#{key_str}) VALUES (#{val_str})"
       DATABASE.execute(sql_str)
     end
   end
@@ -57,7 +57,7 @@ class Sprite
     16.times do |y|
       16.times do |x|
         symb = ("x" + x.to_s + "y" + y.to_s).to_sym
-        hash[symb] = @pixelmatrix[x][y]
+        hash[symb] = @pixel_matrix[x][y]
       end
     end
     hash
@@ -65,11 +65,19 @@ class Sprite
   
   def splitter
     key_arr, val_arr = [],[]
-    self.to_hash.each do |k,v|
-      kay_arr << k
-      val_arr << v
+    h = self.to_hash
+    h.delete(:id)
+    h.each do |k,v|
+      key_arr << k
+      if v.length > 1 && v.to_i == 0
+        val_arr << "'" + v + "'"
+      else
+        val_arr << v
+      end
     end
     key_str = key_arr.join(", ")
     val_str = val_arr.join(", ")
-    key_str, sql_str
+    return key_str, val_str
   end
+  
+end
