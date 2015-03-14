@@ -10,6 +10,8 @@ function boot(){
   dropdown = document.getElementById("dropdown");
   loadButton = document.getElementById("load_button");
   clearButton = document.getElementById("clear_button");
+  userType = document.getElementById("clear_button").name;
+
   
   highSwatch.addEventListener("click",setPointer);
   midSwatch.addEventListener("click",setPointer);
@@ -18,7 +20,10 @@ function boot(){
   loadButton.addEventListener("click",loadDrawing);
   clearButton.addEventListener("click",clearPixels);
   
-  
+  if (userType == "admin"){
+  deleteButton = document.getElementById("delete_button");  
+  deleteButton.addEventListener("click",deleteDrawing);
+  };
   
   for (y = 0; y < rowsArray.length; y ++){
     for (x = 0; x < rowsArray[y].children.length; x++){
@@ -85,6 +90,13 @@ function loadDrawing(){
   xHR.open("get",path);
   xHR.send();
   xHR.addEventListener("load", drawDrawing);
+}
+
+function deleteDrawing(){
+  var path = "/delete/" + dropdown.value;
+  xHR.open("get",path);
+  xHR.send();
+  window.location.href = "/";
 }
 
 function drawDrawing(){
