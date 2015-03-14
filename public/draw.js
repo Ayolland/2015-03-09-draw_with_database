@@ -74,14 +74,14 @@ function captureDrawing(){
 
 function saveDrawing(){
   console.log("SPRITE SAVED")
-  var path = "http://localhost:4567/save" + captureDrawing();
+  var path = "/save" + captureDrawing();
   xHR.open("get",path);
   xHR.send()
-  window.location.href = "http://localhost:4567/";
+  window.location.href = "/";
 }
 
 function loadDrawing(){
-  var path = "http://localhost:4567/load/" + dropdown.value;
+  var path = "/load/" + dropdown.value;
   xHR.open("get",path);
   xHR.send();
   xHR.addEventListener("load", drawDrawing);
