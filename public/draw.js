@@ -21,8 +21,8 @@ function boot(){
   clearButton.addEventListener("click",clearPixels);
   
   if (userType == "admin"){
-  deleteButton = document.getElementById("delete_button");  
-  deleteButton.addEventListener("click",deleteDrawing);
+    deleteButton = document.getElementById("delete_button");  
+    deleteButton.addEventListener("click",deleteDrawing);
   };
   
   for (y = 0; y < rowsArray.length; y ++){

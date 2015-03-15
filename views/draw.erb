@@ -1,3 +1,6 @@
+<div id="login_bar">
+  <%= erb :'partials/login' %>
+</div>
 <div id="spacer" class="spacer">
   <div id="loader" class="interface loader">
     <form>
@@ -11,9 +14,7 @@
     <br>
     <button id="clear_button" class="clear">Clear the canvas.</button>
   </div>
-
   <div id="pallette" class="interface pallete">
-     <h2 id="user" name="regular">Pixel Drawing</h2>
     <div class="swatch" id="highlight"></div>
     <div class="swatch" id="midtone"></div>
     <div class="swatch" id="shadow"></div>
@@ -28,9 +29,9 @@
         </div>
       <% end %>
     </div>
-      <div class="saver">
+      <form class="saver">
         <input type="text" name="name" id="name_field" value="Name your drawing!">
         <button id="save_button" class="save">Save this drawing.</button>
-      </div>
+      </form>
   </div>
 </div>

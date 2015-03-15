@@ -41,3 +41,11 @@ unless ActiveRecord::Base.connection.table_exists?(:sprites)
  t.text :name
  end
 end
+
+unless ActiveRecord::Base.connection.table_exists?(:users)
+  ActiveRecord::Base.connection.create_table :users do |t|
+    t.string :username
+    t.string :email
+    t.text :password
+  end  
+end

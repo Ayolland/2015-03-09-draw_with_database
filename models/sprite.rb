@@ -1,5 +1,7 @@
 class Sprite < ActiveRecord::Base
   
+  belongs_to :user
+  
   def to_hash
     hash = {id: @id, name: @name}
     16.times do |y|
