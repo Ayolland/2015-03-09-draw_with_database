@@ -15,7 +15,6 @@ require_relative "controllers/nav.rb"
 
 enable :sessions
 
-#TODO - allow users to delete their own sprites
 #TODO - add BCrypt
 #TODO - DEPLOY
 #TODO - overhaul CSS and layout

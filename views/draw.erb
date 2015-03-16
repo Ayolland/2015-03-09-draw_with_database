@@ -13,7 +13,7 @@
     <form>
       <select id="dropdown">
         <% @all_sprites.each do |sprite|%>
-          <option value=<%= sprite.id %>><%= sprite.id.to_s + ": " + sprite.name%></option>
+          <option value=<%= sprite.id %>><%= sprite.id.to_s + ": " + sprite.name.capitalize%></option>
         <% end %>
       </select>
     </form>

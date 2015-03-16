@@ -33,7 +33,7 @@ end
 post "/authenticate" do
   binding.pry
   user = User.find_by email: params[:email]
-  if user && user.password == params[:password]
+  if user && BCrypt::Password.new(user.password) == params[:password]
     session[:username] = user.username
     session[:user_id] = user.id
     redirect "/"
@@ -46,7 +46,10 @@ end
 post "/create_user" do
   @user = User.new(params)
   if @user.valid?
+    password_digest = BCrypt::Password.create(params[:password])
+    @user.password , @user.password_confirmation = password_digest, password_digest
     @user.save
+    binding.pry
     redirect "/login"
   else
     erb :new_user
