@@ -1,5 +1,6 @@
 require "pry"
 require "sqlite3"
+require "pg"
 require "sinatra"
 require "sinatra/activerecord"
 require "json"
@@ -15,7 +16,6 @@ require_relative "controllers/nav.rb"
 
 enable :sessions
 
-#TODO - add BCrypt
 #TODO - DEPLOY
 #TODO - overhaul CSS and layout
 #TODO - edit your user's sprites
