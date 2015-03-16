@@ -17,11 +17,6 @@ get "/pry" do #REMOVE THIS LATER
   erb :draw
 end
 
-get "/admin" do
-  @all_sprites = Sprite.all
-  erb :admin
-end
-
 get "/login" do
   erb :login
 end

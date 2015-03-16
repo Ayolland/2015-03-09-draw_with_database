@@ -15,8 +15,9 @@ require_relative "controllers/nav.rb"
 
 enable :sessions
 
-#TODO - make Save Button goto /sprite_view/
+#TODO - allow users to delete their own sprites
 #TODO - add BCrypt
+#TODO - DEPLOY
 #TODO - overhaul CSS and layout
 #TODO - edit your user's sprites
 #TODO - auto-name sprites

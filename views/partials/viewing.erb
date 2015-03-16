@@ -5,3 +5,6 @@
   by: 
   <span id="viewing_user_name"><%= @viewing.user.username %></span>
 </p>
+<% if session[:user_id] == @viewing.user.id %>
+  <button id="delete_button" class="clear">Delete this drawing.</button>
+<% end%>

@@ -84,12 +84,12 @@ function captureDrawing(){
 }
 
 function saveDrawing(event){
+  event.preventDefault()
   console.log("SPRITE SAVED")
   var path = "/save" + captureDrawing();
   xHR.open("get",path);
   xHR.send()
-  event.preventDefault()
-  setInterval(location.reload(), 3000);
+  xHR.addEventListener("load", newViewSprite);
 }
 
 function loadDrawing(sprite_id){
@@ -103,7 +103,7 @@ function deleteDrawing(){
   var path = "/delete/" + dropdown.value;
   xHR.open("get",path);
   xHR.send();
-  setInterval(location.reload(), 3000);
+  setInterval(location.href = "/", 3000);
 }
 
 function drawDrawing(){
@@ -115,3 +115,8 @@ function drawDrawing(){
     }
   };
 }
+
+function newViewSprite(){
+  var quickhash = JSON.parse(this.response)
+  setInterval(location.href = "/view_sprite/" + quickhash.sprite_id, 3000);
+};

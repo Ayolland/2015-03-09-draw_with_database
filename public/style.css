@@ -1,5 +1,4 @@
 div.interface {
-/*    background: lightblue;*/
     width: 50%;
 }
 
@@ -26,7 +25,7 @@ div#canvas {
   background-image: url("gameboy.png");
   background-repeat: no-repeat;
   background-position: 5px 80px;
-  background-size: 370px;
+  background-size: 370px 676px;
 }
 
 div#pallette {
@@ -54,10 +53,10 @@ div#loader {
 
 div#grid {
   position: absolute;
-  top: 178px;
+  top: 176.5px;
   border-top: 1px solid lavender;
   border-left: 1px solid lavender;
-  margin-left: 95px;
+  margin-left: 94.5px;
   margin-right: auto;
 }
 

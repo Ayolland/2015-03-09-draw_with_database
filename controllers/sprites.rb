@@ -1,6 +1,6 @@
 get "/save" do
   Sprite.new(params).save
-  {yup: "SPRITE SAVED"}.to_json
+  {sprite_id: Sprite.last.id}.to_json
 end
 
 get "/load/:id" do
