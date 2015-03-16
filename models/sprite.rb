@@ -1,6 +1,7 @@
 class Sprite < ActiveRecord::Base
   
   belongs_to :user
+  validates_associated :user
   
   def to_hash
     hash = {id: @id, name: @name}

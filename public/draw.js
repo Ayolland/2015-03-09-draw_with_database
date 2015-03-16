@@ -10,18 +10,19 @@ function boot(){
   dropdown = document.getElementById("dropdown");
   loadButton = document.getElementById("load_button");
   clearButton = document.getElementById("clear_button");
-  userType = document.getElementById("clear_button").name;
+  deleteButton = document.getElementById("delete_button"); 
 
-  
   highSwatch.addEventListener("click",setPointer);
   midSwatch.addEventListener("click",setPointer);
   shadSwatch.addEventListener("click",setPointer);
-  saveButton.addEventListener("click",saveDrawing);
   loadButton.addEventListener("click",loadDrawing);
   clearButton.addEventListener("click",clearPixels);
   
-  if (userType == "admin"){
-    deleteButton = document.getElementById("delete_button");  
+  if (saveButton != null) {
+    saveButton.addEventListener("click",saveDrawing);
+  };
+  
+  if (deleteButton != null) {
     deleteButton.addEventListener("click",deleteDrawing);
   };
   

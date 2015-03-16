@@ -38,7 +38,8 @@ unless ActiveRecord::Base.connection.table_exists?(:sprites)
        t.integer "x" + x.to_s + "y" + y.to_s
      end
    end
- t.text :name
+   t.text :name
+   t.integer :user_id
  end
 end
 
@@ -47,5 +48,6 @@ unless ActiveRecord::Base.connection.table_exists?(:users)
     t.string :username
     t.string :email
     t.text :password
+    t.integer :permission
   end  
 end
