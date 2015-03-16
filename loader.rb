@@ -14,3 +14,16 @@ require_relative "controllers/sprites.rb"
 require_relative "controllers/nav.rb"
 
 enable :sessions
+
+#TODO - make Save Button goto /sprite_view/
+#TODO - add BCrypt
+#TODO - overhaul CSS and layout
+#TODO - edit your user's sprites
+#TODO - auto-name sprites
+
+#TODO - larger palette + transparency
+#TODO - responsive CSS
+#TODO - rotate sprites
+#TODO - flip sprites
+#TODO - export as PNG
+#TODO - email link for missing password

@@ -10,16 +10,18 @@ function boot(){
   dropdown = document.getElementById("dropdown");
   loadButton = document.getElementById("load_button");
   clearButton = document.getElementById("clear_button");
-  deleteButton = document.getElementById("delete_button"); 
+  deleteButton = document.getElementById("delete_button");
+  userId = document.getElementById("user_id").value;
+  spriteId = document.getElementById("viewing_sprite_id");
 
   highSwatch.addEventListener("click",setPointer);
   midSwatch.addEventListener("click",setPointer);
   shadSwatch.addEventListener("click",setPointer);
-  loadButton.addEventListener("click",loadDrawing);
+  loadButton.addEventListener("click",function(){location.href = "/view_sprite/" + dropdown.value});
   clearButton.addEventListener("click",clearPixels);
   
   if (saveButton != null) {
-    saveButton.addEventListener("click",saveDrawing);
+    saveButton.addEventListener("click",function(){saveDrawing(event)});
   };
   
   if (deleteButton != null) {
@@ -35,6 +37,9 @@ function boot(){
   setSwatches();
   clearPixels();
   pointerColor = palette[1]
+  if (spriteId != null){
+    loadDrawing(spriteId.value)
+  }
 }
 
 window.onload = boot;
@@ -63,7 +68,7 @@ function setPixel(){
 }
 
 function captureDrawing(){
-  var string = "?name=" + nameField.value;
+  var string = "?name=" + nameField.value + "&user_id=" + userId;
   for (y = 0; y < rowsArray.length; y ++){
     for (x = 0; x < rowsArray[y].children.length; x++){
       var str_value =0 ;
@@ -78,16 +83,17 @@ function captureDrawing(){
   return string
 }
 
-function saveDrawing(){
+function saveDrawing(event){
   console.log("SPRITE SAVED")
   var path = "/save" + captureDrawing();
   xHR.open("get",path);
   xHR.send()
-  window.location.href = "/";
+  event.preventDefault()
+  setInterval(location.reload(), 3000);
 }
 
-function loadDrawing(){
-  var path = "/load/" + dropdown.value;
+function loadDrawing(sprite_id){
+  var path = "/load/" + sprite_id;
   xHR.open("get",path);
   xHR.send();
   xHR.addEventListener("load", drawDrawing);
@@ -97,7 +103,7 @@ function deleteDrawing(){
   var path = "/delete/" + dropdown.value;
   xHR.open("get",path);
   xHR.send();
-  window.location.href = "/";
+  setInterval(location.reload(), 3000);
 }
 
 function drawDrawing(){

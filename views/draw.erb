@@ -3,11 +3,13 @@
     Logged in as: 
     <a id="username"><%= session[:username] ? session[:username].capitalize : "Anonymous" %></a>
   </p>
+  <input id="user_id" type="hidden" value="<%= session[:user_id] %>">
   <%= erb :'partials/no_user' if !session[:user_id]%>
   <%= erb :'partials/logout' if session[:user_id]%>
 </div>
 <div id="spacer" class="spacer">
   <div id="loader" class="interface loader">
+    <%= erb :'partials/viewing' if @viewing %>
     <form>
       <select id="dropdown">
         <% @all_sprites.each do |sprite|%>

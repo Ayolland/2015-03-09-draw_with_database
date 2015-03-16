@@ -1,5 +1,18 @@
 get "/" do
   @all_sprites = Sprite.all
+  erb :draw
+end
+
+get "/view_sprite/:sprite_id" do
+  @all_sprites = Sprite.all
+  @viewing = Sprite.find(params[:sprite_id])
+  redirect "/" if ! @viewing
+  @viewing.user.username ||= "Anonymous"
+  erb :draw
+end
+
+get "/pry" do #REMOVE THIS LATER
+  @all_sprites = Sprite.all
   binding.pry
   erb :draw
 end
