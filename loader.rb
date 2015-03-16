@@ -1,5 +1,4 @@
 require "pry"
-require "sqlite3"
 require "pg"
 require "sinatra"
 require "sinatra/activerecord"
