@@ -15,12 +15,11 @@ require_relative "controllers/nav.rb"
 
 enable :sessions
 
-
-#TODO - overhaul CSS and layout
 #TODO - edit your user's sprites
 #TODO - auto-name sprites
 
 #TODO - larger palette + transparency
+#TODO - sprite pagination
 #TODO - responsive CSS
 #TODO - rotate sprites
 #TODO - flip sprites

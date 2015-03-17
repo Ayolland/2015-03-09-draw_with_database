@@ -97,12 +97,15 @@ button {
   background: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
   letter-spacing: 1.5px;
-  text-transform: uppercase;}
-
-button#load_button {
-  float: right;
+  text-transform: uppercase;
 }
 
+button:hover {
+  background: white;
+  color: black;
+  border: 1px solid black;
+}
+  
 .box {
   width: 350px;
   margin-left: auto;
@@ -110,6 +113,35 @@ button#load_button {
   background: rgba(0, 0, 0, 0.75);
   padding: 10px;
   vertical-align: middle;
+}
+
+.box p {
+  color: rgb(186, 187, 194);
+  margin: 3px;
+  font-size: 10pt;
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+
+.highlight {
+  text-transform: capitalize;
+  color: white;
+  font-weight: bold;
+}
+
+button#load_button {
+  float: right;
+}
+
+button.full_width {
+  width: 340px;
+}
+
+input.full_width {
+  width: 333px;
+  margin-left: 3.5px;
+  text-align: center;
+  letter-spacing: 1.2px;
 }
 
 select#dropdown {
@@ -130,9 +162,10 @@ input {
   background: black;
   color: white;
   font-size: 12px;
-  width: 140px;
+  width: 157px;
   padding: 3px;
   margin: 2px;
+  margin-left: 4px;
   border: 1px solid white;
 }
 
@@ -178,15 +211,7 @@ form.saver {
   margin-left: auto;
 }
 
-input#no_save {
-  width: 300px;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-}
-
 h2 {
-  /* background: rgb(52, 57, 106); */
   color: white;
   max-width: 400px;
   margin-left: auto;
@@ -205,3 +230,4 @@ h2 {
   font-family: sans-serif;
   color: white;
 }
+

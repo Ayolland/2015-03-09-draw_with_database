@@ -1,10 +1,11 @@
 <p> 
   Viewing
   <input id="viewing_sprite_id" value="<%= @viewing.id %>" type=hidden>
-  <span id="viewing_sprite_name"><%= @viewing.name.capitalize %></span>
+  <span id="viewing_sprite_name" class="highlight"><%= @viewing.name %></span>
   by: 
-  <span id="viewing_user_name"><%= @viewing.user.username.capitalize %></span>
+  <span id="viewing_user_name" class="highlight"><%= @viewing.user.username %></span>
 </p>
 <% if session[:user_id] == @viewing.user.id %>
-  <button id="delete_button" class="clear">Delete this drawing.</button>
+  <button id="delete_button" class="clear full_width">Delete this drawing.</button>
+  <button id="edit_button" class="clear full_width">Save these changes to this drawing.</button>
 <% end%>

@@ -18,9 +18,9 @@
             <% end %>
           </select>
         </form>
-      <button id="load_button" class="load">Load this drawing.</button>
+      <button id="load_button" class="load">Load new drawing.</button>
       <br>
-      <button id="clear_button" class="clear">Clear the canvas.</button>
+      <button id="clear_button" class="clear full_width">Clear the canvas.</button>
       <form class="saver">
         <%= erb :'partials/save_menu' if session[:user_id] %>
         <%= erb :'partials/no_save' if !session[:user_id] %>
