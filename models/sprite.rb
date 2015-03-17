@@ -4,7 +4,7 @@ class Sprite < ActiveRecord::Base
   validates_associated :user
   
   def to_hash
-    hash = {id: @id, name: @name}
+    hash = {id: self.id, name: self.name}
     16.times do |y|
       16.times do |x|
         coord = ("x" + x.to_s + "y" + y.to_s)

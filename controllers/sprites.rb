@@ -14,7 +14,9 @@ get "/delete/:id" do
 end
 
 get "/edit" do
-  Sprite.new(params).save
-  {sprite_id: Sprite.last.id}.to_json
+  editing = Sprite.find(params[:id])
+  editing.assign_attributes(params)
+  editing.save
+  {sprite_id: editing.id}.to_json
 end
 

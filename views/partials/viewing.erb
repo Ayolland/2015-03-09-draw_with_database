@@ -5,7 +5,7 @@
   by: 
   <span id="viewing_user_name" class="highlight"><%= @viewing.user.username %></span>
 </p>
-<% if session[:user_id] == @viewing.user.id %>
+<% if (session[:user_id] == @viewing.user.id) || (User.find(session[:user_id]).permission == 1) %>
   <button id="delete_button" class="clear full_width">Delete this drawing.</button>
   <button id="edit_button" class="clear full_width">Save these changes to this drawing.</button>
 <% end%>

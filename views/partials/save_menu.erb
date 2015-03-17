@@ -1,2 +1,2 @@
-<input  size="" class="full_width" type="text" name="name" id="name_field" placeholder="Name your drawing here!">
+<input size="" class="full_width" type="text" name="name" id="name_field" placeholder="Name your drawing here!" <%= "value='#{@viewing.name}'" if @viewing %>>
 <button id="save_button" class="save full_width">Save this canvas as a new drawing.</button>

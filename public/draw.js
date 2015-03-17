@@ -11,8 +11,10 @@ function boot(){
   loadButton = document.getElementById("load_button");
   clearButton = document.getElementById("clear_button");
   deleteButton = document.getElementById("delete_button");
+  editButton = document.getElementById("edit_button");
   userId = document.getElementById("user_id").value;
   spriteId = document.getElementById("viewing_sprite_id");
+  spriteName = document.getElementById("viewing_sprite_name");
 
   highSwatch.addEventListener("click",setPointer);
   midSwatch.addEventListener("click",setPointer);
@@ -26,6 +28,7 @@ function boot(){
   
   if (deleteButton != null) {
     deleteButton.addEventListener("click",deleteDrawing);
+    editButton.addEventListener("click",editDrawing);
   };
   
   for (y = 0; y < rowsArray.length; y ++){
@@ -68,7 +71,7 @@ function setPixel(){
 }
 
 function captureDrawing(){
-  var string = "?name=" + nameField.value + "&user_id=" + userId;
+  var string = "name=" + nameField.value + "&user_id=" + userId;
   for (y = 0; y < rowsArray.length; y ++){
     for (x = 0; x < rowsArray[y].children.length; x++){
       var str_value =0 ;
@@ -84,11 +87,18 @@ function captureDrawing(){
 }
 
 function saveDrawing(event){
-  event.preventDefault()
-  console.log("SPRITE SAVED")
-  var path = "/save" + captureDrawing();
+  event.preventDefault();
+  var path = "/save?" + captureDrawing();
   xHR.open("get",path);
-  xHR.send()
+  xHR.send();
+  xHR.addEventListener("load", newViewSprite);
+}
+
+function editDrawing(event){
+  event.preventDefault() 
+  var path = "/edit?id=" + spriteId.value + "&" + captureDrawing();
+  xHR.open("get",path);
+  xHR.send();
   xHR.addEventListener("load", newViewSprite);
 }
 
