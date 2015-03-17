@@ -9,17 +9,23 @@
 </div>
 <div id="spacer" class="spacer">
   <div id="loader" class="interface loader">
-    <%= erb :'partials/viewing' if @viewing %>
-    <form>
-      <select id="dropdown">
-        <% @all_sprites.each do |sprite|%>
-          <option value=<%= sprite.id %>><%= sprite.id.to_s + ": " + sprite.name.capitalize%></option>
-        <% end %>
-      </select>
-    </form>
-    <button id="load_button" class="load">Load this drawing.</button>
-    <br>
-    <button id="clear_button" class="clear">Clear the canvas.</button>
+    <div class="controls">
+      <%= erb :'partials/viewing' if @viewing %>
+        <form>
+          <select id="dropdown">
+            <% @all_sprites.each do |sprite|%>
+              <option value=<%= sprite.id %>><%= sprite.id.to_s + ": " + sprite.name.capitalize%></option>
+            <% end %>
+          </select>
+        </form>
+      <button id="load_button" class="load">Load this drawing.</button>
+      <br>
+      <button id="clear_button" class="clear">Clear the canvas.</button>
+      <form class="saver">
+        <%= erb :'partials/save_menu' if session[:user_id] %>
+        <%= erb :'partials/no_save' if !session[:user_id] %>
+      </form>
+    </div>
   </div>
   <div id="pallette" class="interface pallete">
     <div class="swatch" id="highlight"></div>
@@ -35,10 +41,5 @@
           <% end %>
         </div>
       <% end %>
-  </div>
-    <form class="saver">
-      <%= erb :'partials/save_menu' if session[:user_id] %>
-      <%= erb :'partials/no_save' if !session[:user_id] %>
-    </form>
   </div>
 </div>

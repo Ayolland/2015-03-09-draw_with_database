@@ -15,7 +15,7 @@ require_relative "controllers/nav.rb"
 
 enable :sessions
 
-#TODO - DEPLOY
+
 #TODO - overhaul CSS and layout
 #TODO - edit your user's sprites
 #TODO - auto-name sprites
