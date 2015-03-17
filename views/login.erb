@@ -1,12 +1,36 @@
+<div id="login_bar">
+  <p id="login_p">
+    <a href="/">Home</a>
+  </p>
+</div>
 <div class="enter_info">
   <% if @display_msg %>
   <h2 class="error"><%= @display_msg %></h2>
   <% end %>
   <h2>Login:</h2>
-  <form action="/authenticate" method="post">
+  <form action="/authenticate" method="post" class="box">
     <input name="email" type="text" placeholder="Email address">
     <input name="password" type="password" placeholder ="Password">
+    <br>
     <button type="submit">Login</button>
   </form>
-  <a href="/">Home</a>
+</div>
+<div class="enter_info">
+  <% if @user %>
+    <div id="errors">
+      <% @user.errors.full_messages.each do |msg| %>
+        <p class="error"><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <h2>Create a New User:</h2>
+  <form action="/create_user" method="post" class="box">
+    <input name="email" type="text" placeholder="Email address">
+    <input name="username" type="text" placeholder="Username">
+    <br>
+    <input name="password" type="password" placeholder="Password">
+    <input name="password_confirmation" type="password" placeholder="Re-Enter Password">
+    <br>
+    <button type="submit">Create New User</button>
+  </form>
 </div>

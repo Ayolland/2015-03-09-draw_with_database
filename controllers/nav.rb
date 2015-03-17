@@ -22,7 +22,7 @@ get "/login" do
 end
 
 get "/new_user" do
-  erb :new_user
+  erb :login
 end
 
 get "/logout" do
@@ -51,7 +51,8 @@ post "/create_user" do
     @user.save
     binding.pry
     redirect "/login"
+    @display_msg = "User created: Please Login."
   else
-    erb :new_user
+    erb :login
   end
 end

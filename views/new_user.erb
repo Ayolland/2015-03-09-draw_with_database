@@ -1,11 +1,11 @@
-<% if @user %>
-  <div id="errors">
-    <% @user.errors.full_messages.each do |msg| %>
-      <p class="error"><%= msg %></p>
-    <% end %>
-  </div>
-<% end %>
 <div class="enter_info">
+  <% if @user %>
+    <div id="errors">
+      <% @user.errors.full_messages.each do |msg| %>
+        <p class="error"><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
   <h2>Create a New User:</h2>
   <form action="/create_user" method="post">
     <input name="email" type="text" placeholder="Email address">
