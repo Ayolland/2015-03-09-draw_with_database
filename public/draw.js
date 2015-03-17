@@ -1,5 +1,5 @@
 function boot(){
-  palette = ["rgb(215, 232, 148)","rgb(174, 196, 64)","rgb(32, 70, 49)"];
+  palette = ["rgb(212, 235, 138)","rgb(153, 181, 102)","rgb(95, 128, 67)","rgb(26, 61, 24)","rgba(255,0,255,0)"];
   xHR = new XMLHttpRequest();
   highSwatch = document.getElementById("highlight");
   midSwatch = document.getElementById("midtone");
