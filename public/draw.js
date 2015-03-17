@@ -4,6 +4,7 @@ function boot(){
   highSwatch = document.getElementById("highlight");
   midSwatch = document.getElementById("midtone");
   shadSwatch = document.getElementById("shadow");
+  swatchesArray = document.getElementById("palette").children;
   rowsArray = document.getElementById("grid").children;
   saveButton = document.getElementById("save_button");
   nameField = document.getElementById("name_field");
@@ -16,9 +17,9 @@ function boot(){
   spriteId = document.getElementById("viewing_sprite_id");
   spriteName = document.getElementById("viewing_sprite_name");
 
-  highSwatch.addEventListener("click",setPointer);
-  midSwatch.addEventListener("click",setPointer);
-  shadSwatch.addEventListener("click",setPointer);
+  // highSwatch.addEventListener("click",setPointer);
+  // midSwatch.addEventListener("click",setPointer);
+  // shadSwatch.addEventListener("click",setPointer);
   loadButton.addEventListener("click",function(){location.href = "/view_sprite/" + dropdown.value});
   clearButton.addEventListener("click",clearPixels);
   
@@ -37,6 +38,10 @@ function boot(){
     }
   };
   
+  for (i = 0; i < swatchesArray.length; i ++){
+    swatchesArray[i].addEventListener("click",setPointer);
+  };
+  
   setSwatches();
   clearPixels();
   pointerColor = palette[1]
@@ -48,9 +53,12 @@ function boot(){
 window.onload = boot;
 
 function setSwatches(){
-  highSwatch.style.background = palette[0];
-  midSwatch.style.background = palette[1];
-  shadSwatch.style.background = palette[2];
+  // highSwatch.style.background = palette[0];
+  // midSwatch.style.background = palette[1];
+  // shadSwatch.style.background = palette[2];
+  for (i = 0; i < swatchesArray.length; i ++){
+    swatchesArray[i].style.background = palette[i];
+  };
 }
 
 function clearPixels(){
