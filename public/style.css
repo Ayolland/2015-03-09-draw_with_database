@@ -5,6 +5,7 @@ html {
 div.interface {
   position: absolute;
   width: 50%;
+  min-width: 350px;
   text-align: center;
   z-index: 2;
 }
@@ -44,6 +45,7 @@ div#canvas {
   right: 0px;
   top: 0;
   height: 800px;
+  min-width: 375px;
   background-image: url("gameboy.png");
   background-repeat: no-repeat;
   background-position: 5px 50px;
@@ -78,7 +80,7 @@ div#grid {
 
 .swatch {
   display: inline-block;
-  border: 3px double black;
+  border: 5px double black;
   height: 45px;
   width: 45px;
 }
@@ -229,3 +231,27 @@ h2 {
   color: white;
 }
 
+@media screen and (max-width: 750px) {
+
+  div#canvas {
+    top: -170px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  
+  div#loader {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    top: 380px;
+    left: -13px;
+  }
+  
+  div#palette {
+    position: relative;
+    top: -55px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
