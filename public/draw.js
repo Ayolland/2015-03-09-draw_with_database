@@ -1,6 +1,6 @@
 function boot(){
   palette = ["rgb(212, 235, 138)","rgb(153, 181, 102)","rgb(95, 128, 67)","rgb(26, 61, 24)","rgba(255, 0, 255, 0)"];
-  xHR = new XMLHttpRequest();
+  xHR = new XMLHttpRequest();/Users/andrewyolland/Desktop/KirbyTileset.gif
   highSwatch = document.getElementById("highlight");
   midSwatch = document.getElementById("midtone");
   shadSwatch = document.getElementById("shadow");
