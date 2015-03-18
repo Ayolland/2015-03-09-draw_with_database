@@ -11,6 +11,7 @@ div.interface {
 }
 
 body {
+  overflow: hidden;
   margin: 0;
   height: 100%;
   background-repeat: no-repeat;
@@ -234,7 +235,7 @@ h2 {
 @media screen and (max-width: 750px) {
 
   div#canvas {
-    top: -170px;
+    top: -200px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -250,8 +251,12 @@ h2 {
   
   div#palette {
     position: relative;
-    top: -55px;
+    top: -85px;
     margin-left: auto;
     margin-right: auto;
+  }
+  
+  body{
+    text-align: center;
   }
 }

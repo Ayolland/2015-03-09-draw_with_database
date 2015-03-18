@@ -11,11 +11,11 @@ get "/view_sprite/:sprite_id" do
   erb :draw
 end
 
-get "/pry" do #REMOVE THIS LATER
-  @all_sprites = Sprite.all
-  binding.pry
-  erb :draw
-end
+# get "/pry" do #REMOVE THIS LATER
+#   @all_sprites = Sprite.all
+#   binding.pry
+#   erb :draw
+# end
 
 get "/login" do
   erb :login
@@ -31,7 +31,6 @@ get "/logout" do
 end
 
 post "/authenticate" do
-  binding.pry
   user = User.find_by email: params[:email]
   if user && BCrypt::Password.new(user.password) == params[:password]
     session[:username] = user.username
@@ -49,7 +48,6 @@ post "/create_user" do
     password_digest = BCrypt::Password.create(params[:password])
     @user.password , @user.password_confirmation = password_digest, password_digest
     @user.save
-    binding.pry
     redirect "/login"
     @display_msg = "User created: Please Login."
   else
