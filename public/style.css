@@ -236,27 +236,62 @@ h2 {
 
   div#canvas {
     top: -200px;
-    margin-left: auto;
-    margin-right: auto;
+    left: -29px;
     position: relative;
   }
   
   div#loader {
+    width: 320px;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 10px 0px;
     position: relative;
-    margin-right: auto;
-    margin-left: auto;
-    top: 380px;
-    left: -13px;
+    /* margin-right: auto; */
+    /* margin-left: auto; */
+    top: 335px;
+    /* left: -13px; */
   }
   
   div#palette {
-    position: relative;
-    top: -85px;
-    margin-left: auto;
-    margin-right: auto;
+    top: 285px;
+    left: -18px;
   }
   
   body{
     text-align: center;
+  }
+
+  .swatch {
+  height: 35px;
+  width: 35px;
+  }
+  
+  .controls.box {
+  /* padding: 2px; */
+  /* width: 100%; */
+
+  }
+
+  .box .mobile {
+  float: none;
+  width: 80%;
+  display: block;
+  word-spacing: -1px;
+  margin-left: 5%;
+  /* margin-right: auto; */
+  }
+  button#load_button {
+  float: none;
+  width: 80%;
+  display: block;
+  margin-left: 5%;
+  margin-right: 5%;
+  }
+
+  form.saver {
+  width: 97.3%;
+  }
+
+  button#clear_button {
+  margin-top: -15px;
   }
 }

@@ -1,5 +1,5 @@
 function boot(){
-  palette = ["rgb(212, 235, 138)","rgb(153, 181, 102)","rgb(95, 128, 67)","rgb(26, 61, 24)","rgba(255,0,255,0)"];
+  palette = ["rgb(212, 235, 138)","rgb(153, 181, 102)","rgb(95, 128, 67)","rgb(26, 61, 24)","rgba(255, 0, 255, 0)"];
   xHR = new XMLHttpRequest();
   highSwatch = document.getElementById("highlight");
   midSwatch = document.getElementById("midtone");
@@ -43,7 +43,10 @@ function boot(){
   };
   
   setSwatches();
-  clearPixels();
+  if (!spriteId){
+    clearPixels();
+  };
+  
   pointerColor = palette[1]
   if (spriteId != null){
     loadDrawing(spriteId.value)
